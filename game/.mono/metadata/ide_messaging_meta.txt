@@ -1,0 +1,2 @@
+﻿65519
+C:/Sdk/godot/Godot_v3.5.3-stable_mono_win64.exe
