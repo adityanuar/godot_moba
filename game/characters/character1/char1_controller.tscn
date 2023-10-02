@@ -1,13 +1,27 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://characters/character1/char1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://characters/character1/char1_controller.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape" id=1]
+radius = 2.99
+height = 7.247
 
 [node name="char1_controller" type="KinematicBody"]
+script = ExtResource( 2 )
 
 [node name="char1" parent="." instance=ExtResource( 1 )]
+transform = Transform( -6, 0, 5.24537e-07, 0, 6, 0, -5.24537e-07, 0, -6, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1.90435, 0, 0, 0, 6.37677, 0, 0, 0, 1.27155, 0, 5.60021, 0 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 6.39802, 0 )
 shape = SubResource( 1 )
+
+[node name="camguide_y" type="Spatial" parent="."]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0 )
+
+[node name="camguide_x" type="Spatial" parent="camguide_y"]
+
+[node name="Camera" type="Camera" parent="camguide_y/camguide_x"]
+transform = Transform( -1, 2.52157e-08, -1.29603e-07, -4.48572e-08, 0.858325, 0.513107, 1.2418e-07, 0.513107, -0.858325, 0, 14.9479, -8.9187 )
+far = 300.0
